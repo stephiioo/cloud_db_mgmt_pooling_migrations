@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Page</title>
+</head>
+<body>
+    <h1>Hospital Information</h1>
+    <ul>
+        {% for hospital in data %}
+            <li>
+                <strong>Hospital Name:</strong> {{ hospital.hospital_name }}
+                <br>
+                <strong>Physicians:</strong>
+                <ul>
+                    {% for physician in hospital.physicians %}
+                        <li>{{ physician.first_name }} {{ physician.last_name }} - {{ physician.work_email }}</li>
+                    {% endfor %}
+                </ul>
+                <strong>Patients:</strong>
+                <ul>
+                    {% for patient in hospital.patients %}
+                        <li>{{ patient.first_name }} {{ patient.last_name }} - {{ patient.email }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
