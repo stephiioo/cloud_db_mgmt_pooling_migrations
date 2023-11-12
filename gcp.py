@@ -13,34 +13,56 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class Hospital(Base):
+    __tablename__ = 'hospitals'
+
+    hospital_id = Column(Integer, primary_key=True, autoincrement=True)
+    hospital_name = Column(String(100), nullable=False)
+
+class Physician(Base):
+    __tablename__ = 'physicians'
+
+    physician_id = Column(Integer, primary_key=True, autoincrement=True)
+    hospital_id = Column(Integer, ForeignKey('hospitals.hospital_id'), nullable=False)
+    first_name = Column(String(50), nullable=False)
+    last_name = Column(String(50), nullable=False)
+    date_of_registered_license = Column(Date)
+    badge_id = Column(String(5))
+    phone_number = Column(String(15))
+    work_email = Column(String(100))
+
+    hospital = relationship('Hospital', back_populates='physicians')
+
 class Patient(Base):
     __tablename__ = 'patients'
 
-    id = Column(Integer, primary_key=True)
+    patient_id = Column(Integer, primary_key=True, autoincrement=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
-    date_of_birth = Column(Date, nullable=False)
-    gender = Column(String(10), nullable=False)
-    contact_number = Column(String(15))
+    gender = Column(String(10))
+    admission_date = Column(Date)
+    phone_number = Column(String(15))
+    email = Column(String(100))
+    hospital_id = Column(Integer, ForeignKey('hospitals.hospital_id'))
 
-    records = relationship('MedicalRecord', back_populates='patient')
+    hospital = relationship('Hospital', back_populates='patients')
 
-class MedicalRecord(Base):
-    __tablename__ = 'medical_records'
+# Additional relationship in Hospital class
 
-    id = Column(Integer, primary_key=True)
-    patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
-    diagnosis = Column(String(100), nullable=False)
-    treatment = Column(String(200))
-    admission_date = Column(Date, nullable=False)
-    discharge_date = Column(Date)
-
-    patient = relationship('Patient', back_populates='records')
+Hospital.physicians = relationship('Physician', back_populates='hospital')
+Hospital.patients = relationship('Patient', back_populates='hospital')
 
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
 
-engine = create_engine("mysql+mysqlconnector://hants-test:yourpassword@34.139.18.69/hants")
+engine = create_engine("mysql+mysqlconnector://root:Password1@35.231.187.48/steph")
+
 
 ## Test connection
 

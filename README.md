@@ -30,4 +30,4 @@
 
 ### i ran into many issues while working on this assignment. I was not able to connect engine to azure or gcp instance. I tried changing my passoword, deleting and creating new azure migrations sql instance. I also turned off "ssl-mode"
 
-### 
+### i had to change IDEs multiple times because cloud shell was being difficult. Decided to use vscode instead
