@@ -32,7 +32,7 @@
 
 ### i had to change IDEs multiple times because cloud shell was being difficult. Decided to use vscode instead
 
-### i waas not able to properly run alembic because there were so many issues that kept popping up and could not be resolved because every time i fix one issue another popped up.
+### i was able to run alembic but i was nt able to complete from step 5 and after because there were so many issues that kept popping up and could not be resolved because every time i fix one issue another popped up.
 
 ### i was then not ble to fully deploy the app to but i did attach an image of the preview from when i ran the code. That was as far as I could get.
 
