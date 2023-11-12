@@ -31,3 +31,9 @@
 ### i ran into many issues while working on this assignment. I was not able to connect engine to azure or gcp instance. I tried changing my passoword, deleting and creating new azure migrations sql instance. I also turned off "ssl-mode"
 
 ### i had to change IDEs multiple times because cloud shell was being difficult. Decided to use vscode instead
+
+### i waas not able to properly run alembic because there were so many issues that kept popping up and could not be resolved because every time i fix one issue another popped up.
+
+### i was then not ble to fully deploy the app to but i did attach an image of the preview from when i ran the code. That was as far as I could get.
+
+### i tried many IDE's as well and I don't know if it is beause I have a macbook air so the processing power isn't as good but at some point even the IDEs stated acting up. For example, in cloudshell, a code that i know should have worked all of a sudden cannot be found in the dirrectory and in vscode, even when i imported all the necessary packages, I got the same issues. These happened at different times over the period I was working on this homework. Moreover, i know it was not a problem on my end because if it didn't work at one point and i logged off and logged back on hours later, the code would start working again only to stop in a while. At some point cloud shell didn;t even let me cd into my repo.
