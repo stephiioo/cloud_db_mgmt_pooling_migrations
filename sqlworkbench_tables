@@ -1,0 +1,27 @@
+ CREATE TABLE hospitals (
+    hospital_id INT PRIMARY KEY AUTO_INCREMENT,
+    hospital_name VARCHAR(100) NOT NULL,
+    );
+    
+    CREATE TABLE physicians (
+    physician_id INT PRIMARY KEY AUTO_INCREMENT,
+    hospital_id INT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_registered_license DATE,
+    badge_id VARCHAR(5),
+    phone_number VARCHAR(15),
+    work_email VARCHAR(100),
+    FOREIGN KEY (hospital_id) REFERENCES hospitals(hospital_id)
+);
+CREATE TABLE patients (
+    patient_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    gender VARCHAR(10), -- You need to specify the data type for the 'gender' column
+    admission_date DATE,
+    phone_number VARCHAR(15),
+    email VARCHAR(100),
+    hospital_id INT, -- Add a hospital_id to establish the foreign key relationship
+    FOREIGN KEY (hospital_id) REFERENCES hospitals(hospital_id)
+    );
